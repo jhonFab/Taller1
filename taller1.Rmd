@@ -12,9 +12,22 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Al comparar los caracteres morfométricos de una especie de langostinos de gran importancia económica en Argentina se observaron diferencias de tamaño entre macho y hembra. En la siguiente tabla se presentan los datos (Largo total mm) de las morfometrías de machos y hembras obtenidos en diferentes recolectas (Ruiz & Mendia, 2008). 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Table: **Datos**
+
+**Hembras**|  |   |**Machos**| |    |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+183.2| 182.5|166.8|140.9|173.9|118.9|
+184.1| 190.0|196.3|121.7|177.4|140.0|
+183.0| 178.1|183.3|173.8|154.8|192.7|
+204.3| 183.2|187.3|154.5|177.5|134.4|
+176.5| 180.4|185.8|109.2|153.4|175.0|
+179.0| 184.3|189.3|150.7|138.7|169.8|
+188.3| 189.2|195.5|203.3|136.7|153.9|
+186.8| 189.1|202.4|163.0|165.3|176.7|
+202.2| 203.1|210.8|137.7|126.7|150.0|
+
 
 ```{r cars}
 summary(cars)
