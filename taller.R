@@ -9,13 +9,19 @@ machos<-c(140.9,121.7,173.8,154.5,109.2,150.7,203.3,163.0,137.7,173.9,177.4,
 #1.a) Haga un histograma con cinco clases y determine la distribución de los 
 #datos para cada sexo. Explique acerca de la distribución del tamaño para cada género. 
 #par(mfrow = c(1,2))
-ancho_barras <- 8.8
-
-#nbarras <- seq(min(hembras) - ancho_barras,
-              # max(hembras) + ancho_barras, by = ancho_barras)
+ancho_barras <- (max(hembras)-min(hembras))/5
+ancho_barrasm <- (max(machos)-min(machos))/5
 
 nbarras <- seq(min(hembras),
                max(hembras), by = ancho_barras)
 
-hist(hembras, breaks = nbarras, main = "Histograma de frecuencias", 
+nbarrasm <- seq(min(machos),
+               max(machos), by = ancho_barrasm)
+par(mfrow = c(1,2))
+
+hist(hembras,prob = TRUE, breaks = nbarras, main = "Histograma de frecuencias", 
+     ylab = "Frecuencia")
+lines(density(hembras), lwd = 2, col = 'red')
+
+hist(machos, breaks = nbarrasm, main = "Histograma de frecuencias", 
      ylab = "Frecuencia")
