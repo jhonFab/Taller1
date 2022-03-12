@@ -1,16 +1,18 @@
 ---
-title: "taller"
+title: "SIMULACIÓN Y TEORÍA DE LA DECISIÓN"
+author: "Presentado por: Jhon Faber LInares y Nelson Alzate"
 output:
   html_document:
     df_print: paged
 date: '2022-03-11'
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+##  Taller de distribución
 
 Al comparar los caracteres morfométricos de una especie de langostinos de gran importancia económica en Argentina se observaron diferencias de tamaño entre macho y hembra. En la siguiente tabla se presentan los datos (Largo total mm) de las morfometrías de machos y hembras obtenidos en diferentes recolectas (Ruiz & Mendia, 2008). 
 
@@ -33,9 +35,9 @@ Table: **Datos**
 summary(cars)
 ```
 
-## Including Plots
+## Histogramas de datos Hembras vs Machos
 
-You can also embed plots, for example:
+En los siguientes histogramas se muestran los datos de los 2 sexos
 
 ```{r pressure, echo=FALSE}
 hembras<-c(183.2,184.1,183.0,204.3,176.5,179.0,188.3,186.8,202.2,182.5,190.0,
@@ -63,6 +65,10 @@ hist(machos, breaks = nbarrasm, main = "Histograma de frecuencias",
      ylab = "Frecuencia")
 
 
+
 ```
+
+
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
