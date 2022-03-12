@@ -25,3 +25,6 @@ lines(density(hembras), lwd = 2, col = 'red')
 
 hist(machos, breaks = nbarrasm, main = "Histograma de frecuencias", 
      ylab = "Frecuencia")
+
+mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
+mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
