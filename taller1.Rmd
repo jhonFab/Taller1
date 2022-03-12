@@ -1,0 +1,51 @@
+---
+title: "taller"
+output:
+  html_document:
+    df_print: paged
+date: '2022-03-11'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+hembras<-c(183.2,184.1,183.0,204.3,176.5,179.0,188.3,186.8,202.2,182.5,190.0,
+           178.1,193.2,180.4,184.3,189.2,189.1,203.1,166.8,196.3,193.3,187.3,
+           185.8,189.3,195.5,202.4,210.8)
+
+machos<-c(140.9,121.7,173.8,154.5,109.2,150.7,203.3,163.0,137.7,173.9,177.4,
+          154.8,177.5,153.4,138.7,136.7,165.3,126.7,118.9,140.0,192.7,134.4,
+          175.0,169.8,153.9,176.7,150.0)
+
+ancho_barras <- 8.8
+
+nbarrash <- seq(min(hembras),
+               max(hembras), by = ancho_barras)
+
+nbarrasm <- seq(min(machos),
+               max(machos), by = ancho_barras)
+par(mfrow = c(1,2))
+
+hist(hembras, breaks = nbarrash, main = "Histograma de frecuencias", 
+     ylab = "Frecuencia")
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
