@@ -23,8 +23,23 @@ hist(hembras,prob = TRUE, breaks = nbarras, main = "Histograma de frecuencias",
      ylab = "Frecuencia")
 lines(density(hembras), lwd = 2, col = 'red')
 
-hist(machos, breaks = nbarrasm, main = "Histograma de frecuencias", 
+hist(machos, prob = TRUE, breaks = nbarrasm, main = "Histograma de frecuencias", 
      ylab = "Frecuencia")
+lines(density(machos), lwd = 2, col = 'red')
 
-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
+
+m<-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
+m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
+m
+m1
+varia<-var(machos, na.rm = FALSE)# esta es la varianza
+varia
+des<-sd(machos, na.rm = FALSE)#  esta es la desviacion estandar
+des
+
+varia1<-var(hembras, na.rm = FALSE)# esta es la varianza
+varia1
+des1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
+des1
+
+

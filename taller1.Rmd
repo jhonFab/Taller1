@@ -58,17 +58,42 @@ nbarrasm <- seq(min(machos),
                max(machos), by = ancho_barrasm)
 par(mfrow = c(1,2))
 
-hist(hembras, breaks = nbarras, main = "Histograma de frecuencias", 
+hist(hembras,prob = TRUE, breaks = nbarras, main = "Histograma de frecuencias", 
      ylab = "Frecuencia")
+lines(density(hembras), lwd = 2, col = 'red')
 
-hist(machos, breaks = nbarrasm, main = "Histograma de frecuencias", 
+hist(machos, prob = TRUE, breaks = nbarrasm, main = "Histograma de frecuencias", 
      ylab = "Frecuencia")
+lines(density(machos), lwd = 2, col = 'red')
 
+m<-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
+m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
+m
+m1
+varia<-var(machos, na.rm = FALSE)# esta es la varianza
+varia
+des<-sd(machos, na.rm = FALSE)#  esta es la desviacion estandar
+des
 
+varia1<-var(hembras, na.rm = FALSE)# esta es la varianza
+varia1
+desv1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
+desv1
 
 ```
 
+### Hallamos la media de ambos 
 
+El promedio de machos es : `r m`
+
+El promedio de hembras es : `r m1`
+
+
+### Hallamos la desviación estandar de ambos 
+
+La desviación estandar de machos es : `r des`
+
+La desviación estandar es : `r desv1`
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
