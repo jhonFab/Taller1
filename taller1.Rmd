@@ -68,30 +68,52 @@ hist(machos, prob = TRUE, breaks = nbarrasm, main = "Histograma de frecuencias",
      ylab = "Frecuencia")
 lines(density(machos), lwd = 2, col = 'red')
 
+#========================================================
+           #---------datos machos---------------
+#========================================================
+
 m<-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
-m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
 m
-m1
 varia<-var(machos, na.rm = FALSE)# esta es la varianza
 varia
 des<-sd(machos, na.rm = FALSE)#  esta es la desviacion estandar
 des
+simetria<-skewness(machos, na.rm = FALSE)# coeficiente de simetria
+curtosis<-kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
 
+#_________________________intervalo de nivel de confianza__
+n<-length(machos) #tamaño de muestra
+n
+cm<-0.97;a<-1-cm #confianza y valor de alfa
+t<-qt(a/2,n-1,lower.tail=F) #punto crítico
+li<-m-t*des/sqrt(n) #límite inferior
+li
+ls<-m+t*des/sqrt(n) #límite superior
+ls
+c(li,ls)
+
+#========================================================
+          #---------datos hembras---------------
+#========================================================
+m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
+m1
 varia1<-var(hembras, na.rm = FALSE)# esta es la varianza
 varia1
-desv1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
-desv1
+des1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
+des1
+simetria1<-skewness(hembras, na.rm = FALSE)# coeficiente de simetria
+curtosis1<-kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
 
-simetria<-skewness(hembras, na.rm = FALSE)# coeficiente de simetria
-
-curtosis<-kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
-
-simetria1<-skewness(machos, na.rm = FALSE)# coeficiente de simetria
-
-curtosis1<-kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
-
-summary(hembras)
-summary(machos)
+#_________________________intervalo de nivel de confianza__
+n1<-length(hembras) #tamaño de muestra
+n1
+ch1<-0.97;a1<-1-ch1 #confianza y valor de alfa
+t1<-qt(a1/2,n1-1,lower.tail=F) #punto crítico
+li1<-m1-t*des1/sqrt(n1) #límite inferior
+li1
+ls1<-m1+t1*des1/sqrt(n1) #límite superior
+ls1
+c(li1,ls1)
 
 ```
 
@@ -106,19 +128,27 @@ El promedio de hembras es : `r m1`
 
 La desviación estandar de machos es : `r des`
 
-La desviación estandar es : `r desv1`
+La desviación estandar es hembras es : `r des1`
 
 
-### Analisis de las grafica hembras
+### Analisis de las grafica machos
 
 Según el coficiente de simetria sk = `r simetria` para la gráfica de hembras, esta es de asimetría positiva y con curtosis según el coeficiente     
 cu = `r curtosis` de tipo leptocurtica, lo que quiere decir que existen muchos valores concentrados entorno a su media. 
 
 
-### Analisis de las grafica machos
+### Analisis de las grafica hembras
 
 Según el coficiente de simetria sk = `r simetria1` para la gráfica de machos, ésta es de asimetría positiva y con curtosis según el coeficiente      
 cu = `r curtosis1`  de tipo leptocurtica, lo que quiere decir que existen muchos valores concentrados entorno a su media. 
+
+### intervalo de confianza machos
+Se puede interpretar entonces que el verdadero promedio de los tamaños de los langostinos machos
+se encuentra entre `r li` - `r ls` y dicha estimación se provee con una confianza de 97%.
+
+### intervalo de confianza hembras
+Se puede interpretar entonces que el verdadero promedio de los tamaños de los langostinos hembras
+se encuentra entre `r li1` - `r ls1` y dicha estimación se provee con una confianza de 97%.
 
 
 

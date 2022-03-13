@@ -1,4 +1,5 @@
 library(quantmod)
+library("moments")
 
 hembras<-c(183.2,184.1,183.0,204.3,176.5,179.0,188.3,186.8,202.2,182.5,190.0,
            178.1,193.2,180.4,184.3,189.2,189.1,203.1,166.8,196.3,193.3,187.3,
@@ -30,28 +31,52 @@ hist(machos, prob = TRUE, breaks = nbarrasm, main = "Histograma de frecuencias",
 lines(density(machos), lwd = 2, col = 'red')
 
 
+#========================================================
+           #---------datos machos---------------
+#========================================================
+
 m<-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
-m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
 m
-m1
 varia<-var(machos, na.rm = FALSE)# esta es la varianza
 varia
 des<-sd(machos, na.rm = FALSE)#  esta es la desviacion estandar
 des
+skewness(machos, na.rm = FALSE)# coeficiente de simetria
+kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
 
+#_________________________intervalo de nivel de confianza__
+n<-length(machos) #tamaño de muestra
+n
+cm<-0.97;a<-1-cm #confianza y valor de alfa
+t<-qt(a/2,n-1,lower.tail=F) #punto crítico
+li<-m-t*des/sqrt(n) #límite inferior
+li
+ls<-m+t*des/sqrt(n) #límite superior
+ls
+c(li,ls)
+
+#========================================================
+          #---------datos hembras---------------
+#========================================================
+m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
+m1
 varia1<-var(hembras, na.rm = FALSE)# esta es la varianza
 varia1
 des1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
 des1
-
-
 skewness(hembras, na.rm = FALSE)# coeficiente de simetria
-
 kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
 
-skewness(machos, na.rm = FALSE)# coeficiente de simetria
-
-kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
+#_________________________intervalo de nivel de confianza__
+n1<-length(hembras) #tamaño de muestra
+n1
+ch1<-0.97;a1<-1-ch1 #confianza y valor de alfa
+t1<-qt(a1/2,n1-1,lower.tail=F) #punto crítico
+li1<-m1-t*des1/sqrt(n1) #límite inferior
+li1
+ls1<-m1+t1*des1/sqrt(n1) #límite superior
+ls1
+c(li1,ls1)
 
 
 ##summary(hembras)
