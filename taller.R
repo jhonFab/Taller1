@@ -55,6 +55,23 @@ ls<-m+t*des/sqrt(n) #límite superior
 ls
 c(li,ls)
 
+#####-------------cajas y bigotes-------------
+boxplot(machos,
+        main = "Tamaño de los 
+    langostinos",
+        xlab = "Largo en cm",
+        ylab = "Machos",
+        col = "blue",
+        border = "brown",
+        horizontal = TRUE,
+        notch = FALSE
+)
+segments(x0 = mean(machos), y0 = 0.8,
+         x1 = mean(machos), y1 = 1.2,
+         col = "red", lwd = 1)
+points(mean(machos), 1, col = 3, pch = 19)
+
+
 #========================================================
           #---------datos hembras---------------
 #========================================================
@@ -77,6 +94,24 @@ li1
 ls1<-m1+t1*des1/sqrt(n1) #límite superior
 ls1
 c(li1,ls1)
+#####-------------cajas y bigotes-------------
+boxplot(hembras,
+        main = "Tamaño de los 
+     langostinos",
+        xlab = "Largo en cm",
+        ylab = "Hembras",
+        col = "orange",
+        border = "brown",
+        horizontal = TRUE,
+        notch = FALSE
+)
+
+
+segments(x0 = mean(hembras), y0 = 0.8,
+         x1 = mean(hembras), y1 = 1.2,
+         col = "red", lwd = 1)
+points(mean(hembras), 1, col = 3, pch = 19)
+
 
 
 ##summary(hembras)

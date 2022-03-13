@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library("moments")
 ```
 
-##  Taller de distribución
+# Taller de distribución
 
 Al comparar los caracteres morfométricos de una especie de langostinos de gran importancia económica en Argentina se observaron diferencias de tamaño entre macho y hembra. En la siguiente tabla se presentan los datos (Largo total mm) de las morfometrías de machos y hembras obtenidos en diferentes recolectas (Ruiz & Mendia, 2008). 
 
@@ -73,47 +73,48 @@ lines(density(machos), lwd = 2, col = 'red')
 #========================================================
 
 m<-mean(machos, na.rm = FALSE)# esta es la media o el promedio de machos
-m
+#m
 varia<-var(machos, na.rm = FALSE)# esta es la varianza
-varia
+#varia
 des<-sd(machos, na.rm = FALSE)#  esta es la desviacion estandar
-des
+#des
 simetria<-skewness(machos, na.rm = FALSE)# coeficiente de simetria
 curtosis<-kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
 
 #_________________________intervalo de nivel de confianza__
 n<-length(machos) #tamaño de muestra
-n
+#n
 cm<-0.97;a<-1-cm #confianza y valor de alfa
 t<-qt(a/2,n-1,lower.tail=F) #punto crítico
 li<-m-t*des/sqrt(n) #límite inferior
-li
+#li
 ls<-m+t*des/sqrt(n) #límite superior
-ls
-c(li,ls)
+#ls
+#c(li,ls)
 
 #========================================================
           #---------datos hembras---------------
 #========================================================
 m1<-mean(hembras, na.rm = FALSE)#  esta es la media o el promedio de hembras
-m1
+#m1
 varia1<-var(hembras, na.rm = FALSE)# esta es la varianza
-varia1
+#varia1
 des1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
-des1
+#des1
 simetria1<-skewness(hembras, na.rm = FALSE)# coeficiente de simetria
 curtosis1<-kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
 
 #_________________________intervalo de nivel de confianza__
 n1<-length(hembras) #tamaño de muestra
-n1
+#n1
 ch1<-0.97;a1<-1-ch1 #confianza y valor de alfa
 t1<-qt(a1/2,n1-1,lower.tail=F) #punto crítico
 li1<-m1-t*des1/sqrt(n1) #límite inferior
-li1
+#li1
 ls1<-m1+t1*des1/sqrt(n1) #límite superior
-ls1
-c(li1,ls1)
+#ls1
+#c(li1,ls1)
+
 
 ```
 
@@ -151,6 +152,61 @@ Se puede interpretar entonces que el verdadero promedio de los tamaños de los l
 se encuentra entre `r li1` - `r ls1` y dicha estimación se provee con una confianza de 97%.
 
 
+### Analisis de cajas y bigotes
+
+```{r echo=FALSE}
+
+cat("datos de machos")
+summary(machos)
+
+cat("datos de hembras")
+summary(hembras)
+par(mfrow = c(1,2))
+boxplot(machos,
+        main = "Tamaño de los 
+    langostinos",
+        xlab = "Largo en cm",
+        ylab = "Machos",
+        col = "blue",
+        border = "brown",
+        horizontal = TRUE,
+        notch = FALSE
+)
+segments(x0 = mean(machos), y0 = 0.8,
+         x1 = mean(machos), y1 = 1.2,
+         col = "red", lwd = 1)
+points(mean(machos), 1, col = 3, pch = 19)
+
+boxplot(hembras,
+        main = "Tamaño de los 
+     langostinos",
+        xlab = "Largo en cm",
+        ylab = "Hembras",
+        col = "orange",
+        border = "brown",
+        horizontal = TRUE,
+        notch = FALSE
+)
 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+segments(x0 = mean(hembras), y0 = 0.8,
+         x1 = mean(hembras), y1 = 1.2,
+         col = "red", lwd = 1)
+points(mean(hembras), 1, col = 3, pch = 19)
+
+```
+
+### Ejercicio 2
+En un restaurante de **la ciudad** se sabe que la probabilidad de que se reciba un billete de 50.000 falso es de 0.015. Si se sabe que en una semana se reciben pagos con 900 billetes de 50.000, halle la probabilidad de que:
+
+a. A lo sumo 25 billetes sean falsos.
+
+b. La cantidad de billetes falsos esté entre 20 y 30.
+
+c. Más de 10 sean falsos.
+
+```{r echo=FALSE}
+
+
+
+```
