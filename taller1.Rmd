@@ -10,6 +10,7 @@ date: '2022-05-11'
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library("moments")
 ```
 
 ##  Taller de distribución
@@ -33,6 +34,7 @@ Table: **Datos**
 
 ```{r cars}
 summary(cars)
+
 ```
 
 ## Histogramas de datos Hembras vs Machos
@@ -80,6 +82,17 @@ varia1
 desv1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
 desv1
 
+simetria<-skewness(hembras, na.rm = FALSE)# coeficiente de simetria
+
+curtosis<-kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
+
+simetria1<-skewness(machos, na.rm = FALSE)# coeficiente de simetria
+
+curtosis1<-kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
+
+summary(hembras)
+summary(machos)
+
 ```
 
 ### Hallamos la media de ambos 
@@ -94,6 +107,20 @@ El promedio de hembras es : `r m1`
 La desviación estandar de machos es : `r des`
 
 La desviación estandar es : `r desv1`
+
+
+### Analisis de las grafica hembras
+
+Según el coficiente de simetria sk = `r simetria` para la gráfica de hembras, esta es de asimetría positiva y con curtosis según el coeficiente     
+cu = `r curtosis` de tipo leptocurtica, lo que quiere decir que existen muchos valores concentrados entorno a su media. 
+
+
+### Analisis de las grafica machos
+
+Según el coficiente de simetria sk = `r simetria1` para la gráfica de machos, ésta es de asimetría positiva y con curtosis según el coeficiente      
+cu = `r curtosis1`  de tipo leptocurtica, lo que quiere decir que existen muchos valores concentrados entorno a su media. 
+
+
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

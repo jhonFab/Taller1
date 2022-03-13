@@ -1,3 +1,5 @@
+library(quantmod)
+
 hembras<-c(183.2,184.1,183.0,204.3,176.5,179.0,188.3,186.8,202.2,182.5,190.0,
            178.1,193.2,180.4,184.3,189.2,189.1,203.1,166.8,196.3,193.3,187.3,
            185.8,189.3,195.5,202.4,210.8)
@@ -42,4 +44,15 @@ varia1
 des1<-sd(hembras, na.rm = FALSE)#  esta es la desviacion estandar
 des1
 
+
+skewness(hembras, na.rm = FALSE)# coeficiente de simetria
+
+kurtosis(hembras, na.rm = FALSE)# coeficiente de curtosis
+
+skewness(machos, na.rm = FALSE)# coeficiente de simetria
+
+kurtosis(machos, na.rm = FALSE)# coeficiente de curtosis
+
+
+##summary(hembras)
 
