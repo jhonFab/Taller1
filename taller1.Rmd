@@ -211,18 +211,22 @@ c. Más de 10 sean falsos.
 
 # x= numero de billetes falsos 
 #p(x<=25) donde n=25, size=900 y la p=0.015
-pbinom(25,900,0.015)
+a<-pbinom(25,900,0.015)
+cat("P(x<=25) es de: ",a)
 
 #numero de billetes falsos que esten 20 y 30 
 #p(20< x <30)
-pbinom(30,900,0.015)-pbinom(20,900,0.015)
+b<-pbinom(30,900,0.015)-pbinom(20,900,0.015)
+cat("p(20< x <30) es de: ",b)
 
 # que mas de 10 billetes sean falsos
 #p(x>10)
-1-pbinom(10,900,0.015)
+c<-1-pbinom(10,900,0.015)
+cat("p(x>10) es de: ",c)
 
-plot(0:900,dbinom(0:900,900,0.015),xlab = " Numero de billetes falsos ", 
-     ylab = "Probabilidad",main="distribucion binomial (n=900, p=0.015)", pch=20, col="blue", bg="green", bty="l", tcl=0.9);
+plot(0:40,dbinom(0:40,900,0.015),xlab = " Numero de billetes falsos ", 
+     ylab = "Probabilidad",main="distribucion binomial (n=900, p=0.015)", 
+     pch=20, col="blue", bg="green", bty="l", tcl=0.9);
 
 
 

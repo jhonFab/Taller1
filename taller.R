@@ -119,6 +119,7 @@ points(mean(hembras), 1, col = 3, pch = 19)
 # x= numero de billetes falsos 
 #p(x<=25) donde n=25, size=900 y la p=0.015
 pbinom(25,900,0.015)
+sum(dbinom(0:900,900,0.015))
 
 #numero de billetes falsos que esten 20 y 30 
 #p(20< x <30)
@@ -129,14 +130,22 @@ pbinom(30,900,0.015)-pbinom(20,900,0.015)
 1-pbinom(10,900,0.015)
 
 plot(0:900,dbinom(0:900,900,0.015),xlab = " Numero de billetes falsos ", 
-     ylab = "Probabilidad",main="distribucion binomial (n=900, p=0.015)", pch=20, col="blue", bg="green", bty="l", tcl=0.9);
+     ylab = "Probabilidad",main="distribucion binomial (n=900, p=0.015)", 
+     pch=20, col="blue", bg="green", bty="l", tcl=0.9);
 
+plot(0:40,dbinom(0:40,900,0.015),xlab = " Numero de billetes falsos ", 
+     ylab = "Probabilidad",main="distribucion binomial (n=900, p=0.015)", 
+     pch=20, col="blue", bg="green", bty="l", tcl=0.9);
+
+sum(dbinom(0:30,900,0.015))
+pbinom(25,900,0.015)
 
 #-------------------------ejercicio 3 ----------------
 
 # x= habitantes que superaran los 92 años de edad
 #p(x>92) la varianza = 25 la desviacion estandar= 5 media =76  q=92
 1-pnorm(92,76,5)
+plotDist("norm", mean = 76, sd = 5, groups = x > 92, type ="h")
 
 # cuantos viviran menos de 55 y mas de 75 años de edad
 #p(x<55) para lo de menos de 55
@@ -149,4 +158,7 @@ pnorm(55,76,5)
 
 summary(hembras)
 summary(machos)
+
+a<-pbinom(25,900,0.015)
+cat("a",a)
 
