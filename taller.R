@@ -144,21 +144,59 @@ pbinom(25,900,0.015)
 
 # x= habitantes que superaran los 92 años de edad
 #p(x>92) la varianza = 25 la desviacion estandar= 5 media =76  q=92
+par(mfrow = c(1,2))
 1-pnorm(92,76,5)
-plotDist("norm", mean = 76, sd = 5, groups = x > 92, type ="h")
+(1-pnorm(92,76,5))*100
+x <- seq(60, 95, 0.1)
+plot(x, dnorm(x, mean = 76, sd = 5), type = "l",
+     ylim = c(0, 0.08), xlab = "Edad", ylab = "Frecuencia", 
+     main=expression(paste("Distribución normal ",mu==76," ", sigma==5)), 
+     lwd = 2, col = "red")
+regionX=seq(92,95,0.01)            
+xP <- c(92,regionX,95)  
+yP <- c(0,dnorm(regionX,76,5),0)
+polygon(xP,yP,col="orange1")
+
+text(90, 0.02, "P(x>92)")
+text(90, 0.01, "0.0687%")
+abline(v = 76)
+
+
+#plotDist("norm",xlim = x, mean = 76, sd = 5, groups = x > 92, type ="h")
 
 # cuantos viviran menos de 55 y mas de 75 años de edad
 #p(x<55) para lo de menos de 55
-pnorm(55,76,5)
+pnorm(55,76,5)*100
 
 #p(x>75) para los de mas de 75 años
-1-pnorm(75,76,5)
+(1-pnorm(75,76,5))*100
+
+
+x <- seq(50, 90, 0.1)
+plot(x, dnorm(x, mean = 76, sd = 5), type = "l",
+     ylim = c(0, 0.08), xlab = "Edad", ylab = "Frecuencia", 
+     main=expression(paste("Distribución normal ",mu==76," ", sigma==5)), 
+     lwd = 2, col = "red")
+regionX1=seq(50,55,0.01)            
+xP <- c(50,regionX1,55)  
+yP <- c(0,dnorm(regionX1,76,5),0)
+polygon(xP,yP,col="orange1")
+
+regionX2=seq(75,90,0.01)            
+xP <- c(75,regionX2,90)  
+yP <- c(0,dnorm(regionX2,76,5),0)
+polygon(xP,yP,col="orange1")
+
+text(55, 0.02, "P(x<55)")
+text(55, 0.01, "0.0013%")
+
+text(80, 0.02, "P(x>75)")
+text(80, 0.01, "57.926%")
+abline(v = 76)
+
 
 
 
 summary(hembras)
 summary(machos)
-
-a<-pbinom(25,900,0.015)
-cat("a",a)
 
